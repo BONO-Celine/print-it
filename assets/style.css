@@ -121,10 +121,11 @@ header {
 	object-fit: cover;
 	object-position: center;
 }
-/* Code CSS en prévision de l'ajout d'un carousel pour la bannière */
+/* Code CSS en prévision de l'ajout d'un carrousel pour la bannière */
 /* Gestion des fleches du carrousel */
 #banner .arrow {
 	position: absolute;
+	cursor: pointer;
 }
 #banner .arrow_left {
 	left: 10px;
@@ -145,12 +146,12 @@ header {
 	background-color: #ffffff00;
 	border: 3px solid #fff;
 	border-radius: 100%;
-	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);;
+	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 .dot_selected {
 	background-color: #fff;
 }
-/* Fin du code CSS pour le carousel */
+/* Fin du code CSS pour le carrousel */
 #banner p {
 	font-family: 'Roboto Slab', sans-serif;
 	font-weight: 900;
