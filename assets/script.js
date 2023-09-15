@@ -28,7 +28,6 @@ let currentSlideIndex = 0
 /* Rendre interactive la flèche gauche */
 let arrowLeft = document.getElementById("arrowLeft")
 arrowLeft.addEventListener("click", () => {
-console.log("Clic bouton gauche")
 
 // Affichage de l'image précédente //
 	if (slides[currentSlideIndex - 1]) {
@@ -37,7 +36,6 @@ console.log("Clic bouton gauche")
 		currentSlideIndex = slides.length - 1
 	}
 	bannerImg.src = `./assets/images/slideshow/${slides[currentSlideIndex].image}`
-	console.log(slides[currentSlideIndex].image)
 
  /* Lancement de la fonction pour remplacer le texte "tagLine" afin qu'il corresponde à l'image du carrousel active */
  replaceTagLine ()
@@ -50,7 +48,6 @@ showActiveDot()
 /* Rendre interactive la fleche droite */
 let arrowRight = document.getElementById("arrowRight")
 arrowRight.addEventListener("click", () => {
-console.log("Clic bouton droit")
 
 //Affichage de l'image suivante//////
 	if (slides[currentSlideIndex + 1]) {
