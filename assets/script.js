@@ -29,7 +29,7 @@ let currentSlideIndex = 0
 let arrowLeft = document.getElementById("arrowLeft")
 arrowLeft.addEventListener("click", () => {
 
-// Affichage de l'image précédente //
+/* Affichage de l'image précédente et défilement infini */
 	if (slides[currentSlideIndex - 1]) {
 		currentSlideIndex-=1
 	} else {
@@ -37,19 +37,19 @@ arrowLeft.addEventListener("click", () => {
 	}
 	bannerImg.src = `./assets/images/slideshow/${slides[currentSlideIndex].image}`
 
- /* Lancement de la fonction pour remplacer le texte "tagLine" afin qu'il corresponde à l'image du carrousel active */
+/*Lancement de la fonction pour remplacer le texte "tagLine" afin qu'il corresponde à l'image du carrousel active */
  replaceTagLine ()
 
 /* Lancement de la fonction pour afficher le Bullet point actif  */
 showActiveDot()
-  })
+})
 /*-------------------------------------------------------------------*/
 /*-------------------------------------------------------------------*/
 /* Rendre interactive la fleche droite */
 let arrowRight = document.getElementById("arrowRight")
 arrowRight.addEventListener("click", () => {
 
-//Affichage de l'image suivante//////
+/* Affichage de l'image suivante et défilement infini */
 	if (slides[currentSlideIndex + 1]) {
 		currentSlideIndex+=1
 	} else {
@@ -57,44 +57,41 @@ arrowRight.addEventListener("click", () => {
 	}
 	bannerImg.src = `./assets/images/slideshow/${slides[currentSlideIndex].image}`
 
- /* Lancement de la fonction pour remplacer le texte "tagLine" afin qu'il corresponde à l'image du carrousel active */
+/* Lancement de la fonction pour remplacer le texte "tagLine" afin qu'il corresponde à l'image du carrousel active */
 replaceTagLine ()
 
 /* Lancement de la fonction pour afficher le Bullet point actif  */
 showActiveDot()
-
-  })
-
-
+})
 /*-------------------------------------------------------------------*/
+
 /*---------------Afficher les bullet points--------------------------*/
 
-  for (let i = 0; i < slides.length; i++) {
-	// Création d'une balise span avec createElement
-	  let span = document.createElement("span")
-	// Ajout de la class dot à cette balise 
-	  span.setAttribute("class","dot")
-	  span.setAttribute("id","dot"+ i)
-	// Récupération de l'élément parent existant grâce à son ID afin de lui ajouter l'élément enfant span créer
-	  document.getElementById("dots").appendChild(span)
-  }
+for (let i = 0; i < slides.length; i++) {
+// Création d'une balise span avec createElement
+	let span = document.createElement("span")
+// Ajout de la class dot et d'un id à cette balise 
+	span.setAttribute("class","dot")
+	span.setAttribute("id","dot"+ i)
+// Récupération de l'élément parent existant grâce à son ID afin de lui ajouter l'élément enfant span créé
+	document.getElementById("dots").appendChild(span)
+}
 
 // Afficher le 1er bullet point actif
-  document.getElementById("dot0").setAttribute("class","dot dot_selected")
+document.getElementById("dot0").classList.add("dot_selected")
 /*-------------------------------------------------------------------*/
 
 /*--------------------------FONCTIONS--------------------------------*/
-
 function replaceTagLine () {
- /* -- Accés au paragraphe de la div "banner" et remplacement de son contenu avec le texte du slide correspondant -- */	
+/* -- Accés au paragraphe de la div "banner" et remplacement de son contenu avec le texte du slide correspondant -- */	
  sliderDiv.querySelector('p').innerHTML = slides[currentSlideIndex].tagLine
 }
 
 function showActiveDot() {
-	/*-- Recupération de la liste de tous les éléments du document dont la classe est ".dot"  et suppression de la classe "dot_selected" pour chacun de ces éléments--*/
-	document.querySelectorAll('.dot').forEach(element => {element.classList.remove("dot_selected")})
-	/* Ajout  de la classe "dot_selected" au bullet point correspondant à la diapositive en cours de visionnage  */
-	document.getElementById("dot" + currentSlideIndex).classList.add("dot_selected")
+/*-- Recupération de la liste de tous les éléments du document dont la classe est ".dot"  et suppression de la classe "dot_selected" pour chacun de ces éléments--*/
+document.querySelectorAll('.dot').forEach(element => {element.classList.remove("dot_selected")})
+/* Ajout  de la classe "dot_selected" au bullet point correspondant à la diapositive en cours de visionnage  */
+document.getElementById("dot" + currentSlideIndex).classList.add("dot_selected")
 }
-
+/*-------------------------------------------------------------------*/
 
